@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/comics/store', "ComicsController@store")->name("comics.store");
+
+Route::get('/comics/create', "ComicsController@create")->name("comics.create");
 
 
 // Route::resource("/comics", ComicsController::class);
