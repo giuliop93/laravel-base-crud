@@ -32,9 +32,19 @@ class ComicsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $newComicsData = $request->all();
+
+        $newComics = new Comic();
+        $newComics->title = $newComicsData["title"];
+        $newComics->description = $newComicsData["description"];
+        $newComics->series = $newComicsData["series"];
+        $newComics->price = $newComicsData["price"];
+        $newComics->thumb = $newComicsData["thumb"];
+        $newComics->sale_date = $newComicsData[""];
+        $newComics->save();
+
+        return redirect()->route("users.show", $newComics->id);
     }
 
     /**
